@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Blood App secure account access.">
+  <title>Sign in | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/api-client.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/pwa.js"></script>
+  <script defer src="js/login.js"></script>
+  <script defer src="js/current-year.js"></script>
+</head>
+<body>
+  <div class="auth-shell">
+    <header class="site-header">
+      <a class="brand" href="login.html" aria-label="Blood App home">
+        <img src="icons/blood-drop.svg" alt="">
+        <span class="brand-name">Blood App</span>
+      </a>
+      <a class="header-link" href="register.html">Create account</a>
+    </header>
+    <main class="auth-main">
+      <section class="auth-card" aria-labelledby="page-title">
+        <p class="auth-eyebrow">Welcome back</p>
+        <h1 class="auth-title" id="page-title">Sign in to Blood App</h1>
+        <p class="auth-intro">Access your account and continue where you left off.</p>
+        <form id="login-form" novalidate>
+          <div id="form-message" class="message" role="status" aria-live="polite" hidden></div>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="username" inputmode="email" maxlength="254" required placeholder="you@example.com" aria-describedby="email-error">
+            <p class="field-error" id="email-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="72" required aria-describedby="password-error">
+              <button class="password-toggle" id="password-toggle" type="button" aria-label="Show password" aria-pressed="false">Show</button>
+            </div>
+            <p class="field-error" id="password-error"></p>
+          </div>
+          <p class="form-meta"><a href="forgot-password.html">Forgot password?</a></p>
+          <button class="button" id="submit-button" type="submit"><span class="button-label">Sign in</span></button>
+          <p class="auth-bottom">New to Blood App? <a href="register.html">Create an account</a></p>
+        </form>
+      </section>
+    </main>
+    <footer class="auth-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer>
+  </div>
+</body>
+</html>

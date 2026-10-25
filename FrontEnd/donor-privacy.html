@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Manage donor contact-sharing preferences, consent history, and urgent request notifications.">
+  <title>Privacy & consent | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/privacy.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/api-client.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/pwa.js"></script>
+  <script defer src="js/current-year.js"></script>
+  <script defer src="js/pages/donor-privacy.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="app-header" id="app-header"></header>
+    <main class="app-main" id="main-content">
+      <div class="privacy-heading">
+        <div><p class="eyebrow">Donor workspace</p><h1>Privacy &amp; consent</h1><p>Choose how your contact details may be shared and whether you want urgent blood-request notifications.</p></div>
+      </div>
+      <div id="page-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+      <section class="privacy-card" aria-labelledby="sharing-title">
+        <h2 id="sharing-title">Contact-sharing preference</h2>
+        <p>These settings guide contact disclosure. Actual disclosure is still checked by the server for each request.</p>
+        <form id="preference-form" novalidate>
+          <label for="sharing-mode">When may my contact details be shared?</label>
+          <select id="sharing-mode" name="sharingMode" required>
+            <option value="WITH_CONSENT">Only when I have given consent</option>
+            <option value="AUTHORIZED_REQUESTS">For authorized blood requests, subject to server checks</option>
+            <option value="NEVER">Never share my contact details</option>
+          </select>
+          <label for="consent-version">Consent notice version</label>
+          <input id="consent-version" name="consentVersion" type="text" value="v1" readonly aria-describedby="consent-version-help">
+          <p id="consent-version-help" class="field-help">This identifies the version of the privacy notice used when saving your preference. It is managed by the app, not edited by donors.</p>
+          <div class="form-actions"><button class="button" type="submit" id="save-preference">Save preference</button></div>
+        </form>
+      </section>
+      <section class="privacy-card" aria-labelledby="urgent-title">
+        <h2 id="urgent-title">Urgent blood-request notifications</h2>
+        <p>Choose whether the app should opt you in to urgent blood-request notifications. Browser push delivery may also require browser permission and a registered subscription.</p>
+        <div class="toggle-row"><div><strong>Urgent notifications</strong><p id="urgent-description">Loading your current preference…</p></div><label class="switch-label" for="urgent-enabled"><span class="sr-only">Enable urgent blood-request notifications</span><input id="urgent-enabled" type="checkbox" disabled><span class="switch-track" aria-hidden="true"></span></label></div>
+        <p class="field-error" id="urgent-error" hidden></p>
+      </section>
+      <section class="privacy-card" aria-labelledby="history-title">
+        <div class="section-heading"><div><h2 id="history-title">Consent history</h2><p>Review contact-sharing consents associated with your account.</p></div><button class="button button--secondary" id="refresh-consents" type="button">Refresh</button></div>
+        <form id="grant-consent-form" class="grant-consent-form">
+          <label for="grant-scope">Grant contact consent for</label>
+          <select id="grant-scope" name="scope" required><option value="CONTACT_DETAILS">Contact details</option><option value="PHONE">Phone number</option><option value="EMAIL">Email address</option></select>
+          <button class="button" id="grant-consent" type="submit">Grant consent</button>
+          <p class="field-help">General consent is recorded here. Request-specific consent is created only through an authorized request flow.</p>
+        </form>
+        <div id="consent-history" class="history-list" aria-live="polite"><p class="muted">Loading consent history…</p></div>
+      </section>
+      <aside class="privacy-note"><strong>When can contact details be disclosed?</strong><p>Contact information is not disclosed just because you match a request. The backend checks request ownership, accepted response, sharing preference, and applicable active consent before returning a donor email. Never include sensitive information in consent notes or share your account credentials.</p></aside>
+    </main>
+    <footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer>
+  </div>
+</body>
+</html>

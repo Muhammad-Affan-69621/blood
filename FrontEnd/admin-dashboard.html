@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#a61b2b">
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml"><link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/layout.css"><link rel="stylesheet" href="css/dialogs.css"><link rel="stylesheet" href="css/organizations.css"><link rel="stylesheet" href="css/admin-dashboard.css">
+  <script defer src="js/config.js"></script><script defer src="js/api-client.js"></script><script defer src="js/auth.js"></script><script defer src="js/navigation.js"></script><script defer src="js/pages/admin-dashboard.js"></script><script defer src="js/current-year.js"></script>
+  <title>Platform admin dashboard | Blood App</title>
+</head>
+<body><div class="site-shell"><header class="app-header" id="app-header"></header>
+<main class="app-main admin-main">
+  <div class="admin-heading"><div><p class="eyebrow">Platform operations</p><h1>Platform admin dashboard</h1><p>Monitor platform health and review community reports.</p></div><div class="org-actions"><a class="button button--secondary" href="admin-overview.html">Platform overview &amp; analytics</a><button id="refresh-admin" type="button" class="button button--secondary">Refresh dashboard</button></div></div>
+  <div id="admin-message" class="status-banner" role="status" hidden></div>
+  <section class="org-panel"><div class="admin-section-heading"><div><h2>Platform overview</h2><p class="org-muted">Live counts from the backend</p></div><span id="generated-at" class="org-muted"></span></div><div id="admin-stats" class="org-stats"><div class="org-empty">Loading platform statistics…</div></div></section>
+  <section class="org-panel"><div class="admin-section-heading"><div><h2>Abuse report moderation</h2><p class="org-muted">Open and in-review reports. Review actions are permission-checked by the backend.</p></div><button id="refresh-reports" class="button button--secondary" type="button">Refresh reports</button></div><div id="report-queue" class="admin-report-list"><div class="org-empty">Loading reports…</div></div></section>
+</main><footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer></div>
+<dialog id="review-modal" class="org-modal"><form id="review-form" class="org-modal-inner"><h2>Review report</h2><p id="review-report-summary" class="org-muted"></p><label class="org-field" for="review-status">Decision<select id="review-status" required><option value="UNDER_REVIEW">Mark under review</option><option value="RESOLVED">Resolve report</option><option value="DISMISSED">Dismiss report</option></select></label><label class="org-field" for="review-resolution">Resolution note<textarea id="review-resolution" rows="4" maxlength="1000" placeholder="Required when resolving or dismissing a report"></textarea></label><div id="review-message" class="org-status" role="status" hidden></div><div class="org-modal-actions"><button id="review-cancel" type="button" class="button button--secondary">Cancel</button><button id="review-submit" type="submit" class="button">Save review</button></div></form></dialog>
+</body></html>

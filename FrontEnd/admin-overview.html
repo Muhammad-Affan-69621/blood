@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#a61b2b">
+<link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml"><link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/layout.css"><link rel="stylesheet" href="css/organizations.css"><link rel="stylesheet" href="css/admin-dashboard.css">
+<script defer src="js/config.js"></script><script defer src="js/api-client.js"></script><script defer src="js/auth.js"></script><script defer src="js/navigation.js"></script><script defer src="js/pages/admin-overview.js"></script><script defer src="js/current-year.js"></script>
+<title>Platform overview & analytics | Blood App</title>
+</head>
+<body><div class="site-shell"><header class="app-header" id="app-header"></header><main class="app-main admin-main">
+<div class="admin-heading"><div><p class="eyebrow">Platform operations</p><h1>Platform overview &amp; analytics</h1><p>Platform-wide statistics reported by the backend.</p></div><div class="org-actions"><a class="button button--secondary" href="admin-dashboard.html">Moderation queue</a><a class="button button--secondary" href="admin-verification-queue.html">Verification queue</a><button id="refresh-overview" type="button" class="button">Refresh overview</button></div></div>
+<div id="overview-message" class="status-banner" role="status" hidden></div><p id="overview-updated" class="org-muted"></p>
+<section class="org-panel"><div class="admin-section-heading"><div><h2>Platform statistics</h2><p class="org-muted">Counts reflect current backend records.</p></div></div><div id="overview-stats" class="org-stats"><div class="org-empty">Loading platform statistics…</div></div></section>
+<section class="org-panel"><div class="admin-section-heading"><div><h2>Blood request status</h2><p class="org-muted">All recorded blood requests by status.</p></div></div><div id="request-stats" class="admin-stats-grid"><div class="org-empty">Loading request statuses…</div></div></section>
+<section class="org-panel"><div class="admin-section-heading"><div><h2>Verification status</h2><p class="org-muted">All verification records by status.</p></div><a class="button button--secondary" href="admin-verification-queue.html">Review pending verifications</a></div><div id="verification-stats" class="admin-stats-grid"><div class="org-empty">Loading verification statuses…</div></div></section>
+<section class="org-panel"><div class="admin-section-heading"><div><h2>Abuse report status</h2><p class="org-muted">All abuse reports by moderation status.</p></div><a class="button button--secondary" href="admin-dashboard.html">Open moderation queue</a></div><div id="report-stats" class="admin-stats-grid"><div class="org-empty">Loading report statuses…</div></div></section>
+</main><footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer></div></body></html>

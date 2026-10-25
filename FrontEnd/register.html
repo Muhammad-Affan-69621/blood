@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Blood App secure account access.">
+  <title>Create account | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/api-client.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/pwa.js"></script>
+  <script defer src="js/register.js"></script>
+  <script defer src="js/current-year.js"></script>
+</head>
+<body>
+  <div class="auth-shell">
+    <header class="site-header">
+      <a class="brand" href="login.html" aria-label="Blood App home">
+        <img src="icons/blood-drop.svg" alt="">
+        <span class="brand-name">Blood App</span>
+      </a>
+      <a class="header-link" href="login.html">Back to sign in</a>
+    </header>
+    <main class="auth-main">
+      <section class="auth-card" aria-labelledby="page-title">
+        <p class="auth-eyebrow">Join the community</p>
+        <h1 class="auth-title" id="page-title">Create your account</h1>
+        <p class="auth-intro">Register as a donor or recipient. Your role determines the next step.</p>
+        <form id="register-form" novalidate>
+          <div id="form-message" class="message" role="status" aria-live="polite" hidden></div>
+          <div class="form-field">
+            <label for="role">I want to join as</label>
+            <select id="role" name="role" required aria-describedby="role-error">
+              <option value="DONOR">Blood donor</option>
+              <option value="RECIPIENT">Blood recipient</option>
+            </select>
+            <p class="field-error" id="role-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required placeholder="you@example.com" aria-describedby="email-error">
+            <p class="field-error" id="email-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="72" required aria-describedby="password-error password-help">
+              <button class="password-toggle" id="password-toggle" type="button" aria-label="Show password" aria-pressed="false">Show</button>
+            </div>
+            <p class="helper-text" id="password-help">Use 8–72 characters.</p>
+            <p class="field-error" id="password-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="confirm-password">Confirm password</label>
+            <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" maxlength="72" required aria-describedby="confirm-password-error">
+            <p class="field-error" id="confirm-password-error"></p>
+          </div>
+          <button class="button" id="submit-button" type="submit"><span class="button-label">Create account</span></button>
+          <p class="auth-bottom">Already registered? <a href="login.html">Sign in</a></p>
+        </form>
+      </section>
+    </main>
+    <footer class="auth-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer>
+  </div>
+</body>
+</html>

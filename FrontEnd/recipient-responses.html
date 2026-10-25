@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Review donor responses to your blood requests."><title>Donor responses | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/layout.css"><link rel="stylesheet" href="css/donation-responses.css">
+  <script defer src="js/config.js"></script><script defer src="js/api-client.js"></script><script defer src="js/auth.js"></script><script defer src="js/navigation.js"></script><script defer src="js/pwa.js"></script><script defer src="js/pages/recipient-responses.js"></script><script defer src="js/current-year.js"></script>
+</head>
+<body><div class="site-shell"><header class="app-header" id="app-header"></header><main class="app-main" id="main-content">
+  <div class="responses-heading"><div><p class="eyebrow">Recipient workspace</p><h1>Donor responses</h1><p>Review donor responses for your own blood requests and record your decision.</p></div><a class="button button--secondary" href="blood-requests.html">My blood requests</a></div>
+  <div id="page-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+  <section class="summary-grid" aria-label="Response summary"><article class="summary-card"><span>Responses</span><strong id="total-count">—</strong></article><article class="summary-card"><span>Awaiting decision</span><strong id="pending-count">—</strong></article><article class="summary-card"><span>Accepted</span><strong id="accepted-count">—</strong></article><article class="summary-card"><span>Rejected</span><strong id="rejected-count">—</strong></article></section>
+  <div class="results-bar"><p id="results-summary" aria-live="polite">Loading donor responses…</p><button class="text-button" type="button" id="refresh-button">Refresh</button></div>
+  <section id="response-list" class="response-list" aria-label="Donor responses" aria-live="polite"><div class="empty-state loading">Loading donor responses…</div></section>
+  <div class="results-bar"><button class="button button--secondary" id="prev-page" type="button" disabled>Previous</button><span id="page-label">Page 1</span><button class="button button--secondary" id="next-page" type="button" disabled>Next</button></div>
+  <dialog id="decision-dialog" class="app-modal"><form method="dialog" id="decision-form"><h2 id="dialog-title">Confirm decision</h2><p id="dialog-copy"></p><label for="decision-note">Optional note (if needed)</label><textarea id="decision-note" rows="3" maxlength="500" placeholder="Add a note for your records"></textarea><div class="modal-actions"><button class="button button--secondary" value="cancel">Go back</button><button class="button" id="confirm-decision" value="confirm">Confirm decision</button></div></form></dialog>
+  <p class="privacy-note">Only privacy-filtered donor information is shown. Contact details are not exposed here. Any contact access must use the authorized consent workflow.</p>
+</main><footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer></div></body></html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Browse compatible open blood requests and respond if you are able to donate.">
+  <title>Matching blood requests | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/matching-requests.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/api-client.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/pwa.js"></script>
+  <script defer src="js/pages/matching-requests.js"></script>
+  <script defer src="js/current-year.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="app-header" id="app-header"></header>
+    <main class="app-main" id="main-content">
+      <div class="requests-heading">
+        <div><p class="eyebrow">Donor workspace</p><h1>Matching blood requests</h1><p>Review open requests the backend identifies as compatible with your blood group and eligibility.</p></div>
+        <a class="button button--secondary" href="donation-responses.html">My responses</a>
+      </div>
+      <div id="page-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+      <section class="filter-panel" aria-label="Filter matching requests">
+        <form id="filter-form" class="filter-form">
+          <div class="field"><label for="city-filter">City (optional)</label><input id="city-filter" name="city" type="text" minlength="2" maxlength="120" autocomplete="address-level2" placeholder="Filter by city"></div>
+          <div class="field"><label for="page-size">Requests per page</label><select id="page-size" name="limit"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select></div>
+          <button class="button" type="submit" id="filter-button">Apply filters</button>
+          <button class="button button--secondary" type="button" id="clear-filter-button">Clear</button>
+        </form>
+      </section>
+      <div class="results-bar"><p id="results-summary" aria-live="polite">Loading matching requests…</p><button class="text-button" type="button" id="refresh-button">Refresh</button></div>
+      <section id="request-list" class="request-grid" aria-label="Compatible blood requests" aria-live="polite">
+        <div class="empty-state loading">Loading compatible requests…</div>
+      </section>
+      <nav class="pagination" aria-label="Request pages">
+        <button class="button button--secondary" type="button" id="previous-page" disabled>Previous</button>
+        <span id="page-indicator">Page 1</span>
+        <button class="button button--secondary" type="button" id="next-page" disabled>Next</button>
+      </nav>
+      <p class="privacy-note">Only requests returned by the backend are shown. Your donor profile must meet the backend's verification, availability, eligibility, and compatibility rules. Contact details are not displayed here.</p>
+    </main>
+    <footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer>
+  </div>
+</body>
+</html>

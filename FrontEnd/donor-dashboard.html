@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Your Blood App donor dashboard: profile, eligibility, matching requests, and donation responses.">
+  <title>Donor dashboard | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/api-client.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/pwa.js"></script>
+  <script defer src="js/pages/donor-dashboard.js"></script>
+  <script defer src="js/current-year.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="app-header" id="app-header"></header>
+    <main class="app-main" id="main-content">
+      <div class="dashboard-heading">
+        <div><p class="eyebrow">Donor workspace</p><h1 id="welcome-title">Your donor dashboard</h1><p>Stay ready to help. Keep your profile current and review requests that may need you.</p></div>
+        <a class="button" href="matching-requests.html">View matching requests</a>
+      </div>
+      <div id="page-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+      <section class="metrics-grid" aria-label="Donor summary">
+        <article class="metric-card"><p class="metric-label">Profile completion</p><strong class="metric-value" id="profile-completion">—</strong><p class="metric-detail" id="profile-completion-detail">Checking your profile</p></article>
+        <article class="metric-card"><p class="metric-label">Verification</p><strong class="metric-value" id="verification-status">—</strong><p class="metric-detail" id="verification-detail">Checking verification</p></article>
+        <article class="metric-card"><p class="metric-label">Availability</p><strong class="metric-value" id="availability-status">—</strong><p class="metric-detail" id="eligibility-detail">Eligibility depends on your profile and backend rules.</p></article>
+        <article class="metric-card"><p class="metric-label">Unread notifications</p><strong class="metric-value" id="unread-count">—</strong><p class="metric-detail"><a href="notifications.html">Review notifications</a></p></article>
+      </section>
+      <div class="dashboard-grid">
+        <div>
+          <section class="panel" aria-labelledby="profile-panel-title">
+            <div class="panel-heading"><h2 id="profile-panel-title">Your donor profile</h2><a class="text-link" href="donor-profile.html">Edit profile</a></div>
+            <dl>
+              <div class="profile-row"><dt>Blood group</dt><dd id="blood-group">—</dd></div>
+              <div class="profile-row"><dt>Location</dt><dd id="donor-city">—</dd></div>
+              <div class="profile-row"><dt>Profile status</dt><dd id="profile-status">Loading</dd></div>
+              <div class="profile-row"><dt>Eligibility / waiting period</dt><dd id="donation-eligibility">Not provided</dd></div>
+            </dl>
+          </section>
+          <section class="panel" aria-labelledby="requests-panel-title">
+            <div class="panel-heading"><h2 id="requests-panel-title">Matching blood requests</h2><a class="text-link" href="matching-requests.html">See all</a></div>
+            <ul class="request-list" id="matching-request-list"><li class="empty-state loading">Loading compatible requests…</li></ul>
+          </section>
+          <section class="panel" aria-labelledby="responses-panel-title">
+            <div class="panel-heading"><h2 id="responses-panel-title">Your donation responses</h2><a class="text-link" href="donation-responses.html">View responses</a></div>
+            <p id="response-summary" class="empty-state loading">Loading your response summary…</p>
+          </section>
+        </div>
+        <aside>
+          <section class="panel" aria-labelledby="verification-panel-title">
+            <div class="panel-heading"><h2 id="verification-panel-title">Verification</h2><a class="text-link" href="donor-verification.html">Open</a></div>
+            <p id="verification-summary" class="empty-state">Your verification status will appear here.</p>
+          </section>
+          <section class="panel" aria-labelledby="shortcuts-title">
+            <div class="panel-heading"><h2 id="shortcuts-title">Quick actions</h2></div>
+            <div class="shortcut-grid">
+              <a class="shortcut-card" href="donor-profile.html"><span class="shortcut-icon" aria-hidden="true">♙</span><strong>Profile</strong><span>Update your details</span></a>
+              <a class="shortcut-card" href="matching-requests.html"><span class="shortcut-icon" aria-hidden="true">♡</span><strong>Requests</strong><span>Find compatible requests</span></a>
+              <a class="shortcut-card" href="donation-responses.html"><span class="shortcut-icon" aria-hidden="true">↗</span><strong>Responses</strong><span>Track your replies</span></a>
+              <a class="shortcut-card" href="notifications.html"><span class="shortcut-icon" aria-hidden="true">♧</span><strong>Notifications</strong><span>See important updates</span></a>
+              <a class="shortcut-card" href="donor-verification.html"><span class="shortcut-icon" aria-hidden="true">✓</span><strong>Verification</strong><span>Check review status</span></a>
+              <a class="shortcut-card" href="donor-privacy.html"><span class="shortcut-icon" aria-hidden="true">▣</span><strong>Privacy & consent</strong><span>Manage contact sharing</span></a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer>
+  </div>
+</body>
+</html>

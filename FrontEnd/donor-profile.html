@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Manage your Blood App donor profile and availability.">
+  <title>Donor profile | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/api-client.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/pwa.js"></script>
+  <script defer src="js/pages/donor-profile.js"></script>
+  <script defer src="js/current-year.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="app-header" id="app-header"></header>
+    <main class="app-main" id="main-content">
+      <header class="profile-heading">
+        <div><p class="eyebrow">Donor workspace</p><h1>Donor profile</h1><p>Keep your details accurate so the service can assess eligibility and show relevant blood requests.</p></div>
+        <a class="button button--secondary" href="donor-dashboard.html">Back to dashboard</a>
+      </header>
+      <div id="page-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+      <div class="profile-layout">
+        <section class="profile-card" aria-labelledby="profile-form-title">
+          <h2 id="profile-form-title">Your details</h2>
+          <form id="donor-profile-form" novalidate>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="blood-group">Blood group <span aria-hidden="true">*</span></label>
+                <select id="blood-group" name="bloodGroup" required>
+                  <option value="">Choose blood group</option>
+                  <option value="O_NEGATIVE">O−</option><option value="O_POSITIVE">O+</option>
+                  <option value="A_NEGATIVE">A−</option><option value="A_POSITIVE">A+</option>
+                  <option value="B_NEGATIVE">B−</option><option value="B_POSITIVE">B+</option>
+                  <option value="AB_NEGATIVE">AB−</option><option value="AB_POSITIVE">AB+</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="date-of-birth">Date of birth <span aria-hidden="true">*</span></label>
+                <input id="date-of-birth" name="dateOfBirth" type="date" required autocomplete="bday">
+              </div>
+              <div class="form-field">
+                <label for="weight-kg">Weight (kg) <span aria-hidden="true">*</span></label>
+                <input id="weight-kg" name="weightKg" type="number" min="1" max="999.99" step="0.01" inputmode="decimal" required>
+              </div>
+              <div class="form-field">
+                <label for="city">City <span aria-hidden="true">*</span></label>
+                <input id="city" name="city" type="text" minlength="2" maxlength="120" autocomplete="address-level2" required>
+              </div>
+              <div class="form-field form-field--full">
+                <label for="last-donation-date">Last donation date</label>
+                <input id="last-donation-date" name="lastDonationDate" type="date">
+                <small>Leave blank if you have never donated or do not know the date.</small>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="button" id="save-profile-button" type="submit">Save profile</button>
+              <button class="button button--secondary" id="reset-form-button" type="reset">Reset changes</button>
+            </div>
+          </form>
+          <section class="availability-control" aria-label="Donor availability">
+            <div><strong>Available to donate</strong><p>Turning availability on is checked by the backend against eligibility rules.</p></div>
+            <label class="switch" for="availability-toggle"><input id="availability-toggle" type="checkbox" disabled><span id="availability-label">Loading…</span></label>
+          </section>
+        </section>
+        <aside class="info-card" aria-labelledby="status-title">
+          <h2 id="status-title">Profile & eligibility</h2>
+          <dl class="info-list">
+            <div><dt>Profile status</dt><dd id="profile-status">Loading…</dd></div>
+            <div><dt>Verification</dt><dd id="verification-status">Not provided</dd></div>
+            <div><dt>Availability</dt><dd id="availability-status">Loading…</dd></div>
+            <div><dt>Last donation</dt><dd id="last-donation-summary">Not provided</dd></div>
+            <div><dt>Waiting period</dt><dd id="waiting-period">Shown when provided by the service</dd></div>
+          </dl>
+          <p>Eligibility depends on your submitted information and the backend's current rules. Saving your profile does not guarantee eligibility or verification.</p>
+          <p><a href="donor-verification.html">View donor verification</a></p>
+        </aside>
+      </div>
+    </main>
+    <footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Review your submitted blood donation responses and recipient decisions.">
+  <title>My donation responses | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/donation-responses.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/api-client.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/pwa.js"></script>
+  <script defer src="js/pages/donation-responses.js"></script>
+  <script defer src="js/current-year.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="app-header" id="app-header"></header>
+    <main class="app-main" id="main-content">
+      <div class="responses-heading">
+        <div><p class="eyebrow">Donor workspace</p><h1>My donation responses</h1><p>Track responses you've submitted and see whether the recipient has made a decision.</p></div>
+      <a class="button button--secondary" href="matching-requests.html">Browse matching requests</a></div>
+      <div id="page-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+      <section class="summary-grid" aria-label="Response summary">
+        <article class="summary-card"><span>Total responses</span><strong id="total-count">—</strong></article>
+        <article class="summary-card"><span>Awaiting decision</span><strong id="pending-count">—</strong></article>
+        <article class="summary-card"><span>Accepted</span><strong id="accepted-count">—</strong></article>
+        <article class="summary-card"><span>Rejected</span><strong id="rejected-count">—</strong></article>
+      </section>
+      <div class="results-bar"><p id="results-summary" aria-live="polite">Loading your responses…</p><button class="text-button" type="button" id="refresh-button">Refresh</button></div>
+      <section id="response-list" class="response-list" aria-label="Your donation responses" aria-live="polite"><div class="empty-state loading">Loading your donation responses…</div></section>
+      <p class="privacy-note">Response statuses reflect information returned by the backend. An accepted response does not replace any instructions from the recipient or healthcare professionals.</p>
+    </main>
+    <footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer>
+  </div>
+</body>
+</html>

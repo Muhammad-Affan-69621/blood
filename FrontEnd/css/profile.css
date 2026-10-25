@@ -1,0 +1,32 @@
+.profile-heading { display:flex; justify-content:space-between; align-items:flex-start; gap:1.5rem; margin-bottom:1.5rem; }
+.eyebrow { margin:0 0 .35rem; color:var(--color-primary); font-size:var(--font-size-sm); font-weight:750; letter-spacing:.06em; text-transform:uppercase; }
+.profile-heading h1 { margin:0; font-size:var(--font-size-3xl); line-height:1.2; }
+.profile-heading p:last-child { max-width:680px; color:var(--color-muted); margin:.65rem 0 0; }
+.profile-layout { display:grid; grid-template-columns:minmax(0, 1.65fr) minmax(260px, .85fr); gap:1.25rem; align-items:start; }
+.profile-card,.info-card { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); padding:clamp(1rem, 3vw, 1.75rem); }
+.profile-card h2,.info-card h2 { margin:0 0 1rem; font-size:var(--font-size-xl); }
+.form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.form-field { display:flex; flex-direction:column; gap:.4rem; min-width:0; }
+.form-field--full { grid-column:1/-1; }
+.form-field label { font-weight:700; font-size:var(--font-size-sm); }
+.form-field input,.form-field select { width:100%; min-height:46px; padding:.65rem .75rem; border:1px solid #b9c1cb; border-radius:var(--radius-sm); background:#fff; color:var(--color-ink); }
+.form-field small,.field-help { color:var(--color-muted); font-size:var(--font-size-xs); }
+.form-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.75rem; margin-top:1.4rem; }
+.status-banner { margin:0 0 1rem; padding:.8rem 1rem; border:1px solid var(--color-border); border-radius:var(--radius-sm); background:var(--color-surface); }
+.status-banner[data-kind="error"] { color:var(--color-danger); background:var(--color-danger-bg); border-color:#efc3c8; }
+.status-banner[data-kind="success"] { color:var(--color-success); background:var(--color-success-bg); border-color:#b8dfc8; }
+.availability-control { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 0; border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border); }
+.availability-control p { margin:.2rem 0 0; color:var(--color-muted); font-size:var(--font-size-sm); }
+.switch { display:inline-flex; align-items:center; gap:.6rem; font-weight:700; white-space:nowrap; }
+.switch input { width:1.15rem; height:1.15rem; accent-color:var(--color-primary); }
+.info-list { display:grid; gap:.9rem; margin:0; }
+.info-list div { padding-bottom:.8rem; border-bottom:1px solid var(--color-border); }
+.info-list div:last-child { padding-bottom:0; border-bottom:0; }
+.info-list dt { color:var(--color-muted); font-size:var(--font-size-sm); }
+.info-list dd { margin:.2rem 0 0; font-weight:750; overflow-wrap:anywhere; }
+.info-card p { color:var(--color-muted); font-size:var(--font-size-sm); }
+@media(max-width:800px) { .profile-layout { grid-template-columns:1fr; } .profile-heading { flex-direction:column; } }
+@media(max-width:520px) { .form-grid { grid-template-columns:1fr; } .form-field--full { grid-column:auto; } .availability-control { align-items:flex-start; flex-direction:column; } .profile-heading h1 { font-size:var(--font-size-2xl); } }
+
+/* Keep the profile form actions clear of the card bottom border. */
+.profile-card form .form-actions { margin-bottom: 1rem; padding-bottom: .25rem; }

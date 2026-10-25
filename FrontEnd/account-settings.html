@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b"><meta name="description" content="Manage your account details, email address, and account status.">
+  <title>Account settings | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/layout.css"><link rel="stylesheet" href="css/account-settings.css">
+  <script defer src="js/config.js"></script><script defer src="js/api-client.js"></script><script defer src="js/auth.js"></script><script defer src="js/navigation.js"></script><script defer src="js/pwa.js"></script><script defer src="js/current-year.js"></script><script defer src="js/pages/account-settings.js"></script>
+</head>
+<body><div class="site-shell"><header class="app-header" id="app-header"></header>
+<main class="app-main account-settings-main" id="main-content">
+  <div class="account-heading"><div><p class="eyebrow">Account</p><h1>Account settings</h1><p>View your account details, update your email address, or deactivate your account.</p></div></div>
+  <div id="page-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+  <section class="account-card" aria-labelledby="details-heading"><h2 id="details-heading">Account details</h2><dl class="account-details"><div><dt>Account ID</dt><dd id="account-id">Loading…</dd></div><div><dt>Current email</dt><dd id="current-email">Loading…</dd></div><div><dt>Role(s)</dt><dd id="account-roles">Loading…</dd></div><div><dt>Account status</dt><dd id="account-status">Loading…</dd></div><div><dt>Created</dt><dd id="account-created">Loading…</dd></div></dl></section>
+  <section class="account-card" aria-labelledby="email-heading"><h2 id="email-heading">Update account email</h2><p>Use an email address you can access. It must not already belong to another account.</p><form id="email-form" novalidate><label for="new-email">New email address</label><input id="new-email" name="email" type="email" maxlength="254" autocomplete="email" required><p id="email-error" class="field-error" hidden></p><div class="account-actions"><button class="button" id="save-email" type="submit">Save email</button></div></form></section>
+  <section class="account-card account-danger" aria-labelledby="deactivate-heading"><h2 id="deactivate-heading">Deactivate account</h2><p>Deactivation disables your account. You will be signed out and will need assistance to restore access if reactivation is supported.</p><button class="button button--danger" id="deactivate-account" type="button">Deactivate my account</button></section>
+</main><footer class="site-footer"><span>© <span id="current-year"></span> Blood App</span></footer></div>
+</body></html>

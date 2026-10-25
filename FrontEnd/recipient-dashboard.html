@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Recipient dashboard for managing blood requests and donor responses.">
+  <title>Recipient dashboard | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/recipient-dashboard.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/api-client.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/pwa.js"></script>
+  <script defer src="js/pages/recipient-dashboard.js"></script>
+  <script defer src="js/current-year.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="app-header" id="app-header"></header>
+    <main class="app-main" id="main-content">
+      <section class="dashboard-heading">
+        <div>
+          <p class="eyebrow">Recipient workspace</p>
+          <h1 id="welcome-title">Your blood request dashboard</h1>
+          <p>Track request progress, review donor activity, and take the next step when you need blood.</p>
+        </div>
+        <a class="button" href="blood-requests.html">+ Create blood request</a>
+      </section>
+
+      <div id="page-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+
+      <section class="metrics-grid" aria-label="Blood request summary">
+        <article class="metric-card"><p class="metric-label">Active</p><strong class="metric-value" id="count-active">—</strong><p class="metric-detail">Open and seeking donors</p></article>
+        <article class="metric-card"><p class="metric-label">In progress</p><strong class="metric-value" id="count-progress">—</strong><p class="metric-detail">Donor coordination underway</p></article>
+        <article class="metric-card"><p class="metric-label">Fulfilled</p><strong class="metric-value" id="count-fulfilled">—</strong><p class="metric-detail">Marked fulfilled</p></article>
+        <article class="metric-card"><p class="metric-label">Cancelled / expired</p><strong class="metric-value" id="count-closed">—</strong><p class="metric-detail">No longer active</p></article>
+      </section>
+
+      <section class="shortcut-grid" aria-label="Recipient shortcuts">
+        <a class="shortcut-card" href="blood-requests.html"><span class="shortcut-icon" aria-hidden="true">＋</span><strong>Create or manage requests</strong><span>Create a request, edit an open one, or check its status.</span></a>
+        <a class="shortcut-card" href="donor-search.html"><span class="shortcut-icon" aria-hidden="true">⌕</span><strong>Find donors</strong><span>Search eligible donors using compatibility and location filters.</span></a>
+        <a class="shortcut-card" href="recipient-responses.html"><span class="shortcut-icon" aria-hidden="true">♡</span><strong>Review donor responses</strong><span>Review responses and record permitted decisions.</span></a>
+      </section>
+
+      <div class="dashboard-grid">
+        <section class="panel">
+          <div class="panel-heading"><h2>Recent blood requests</h2><a class="text-link" href="blood-requests.html">View all</a></div>
+          <ul class="request-list" id="recent-request-list" aria-live="polite"><li class="empty-state loading">Loading your requests…</li></ul>
+        </section>
+        <div>
+          <section class="panel">
+            <div class="panel-heading"><h2>Donor response activity</h2><a class="text-link" href="recipient-responses.html">Review</a></div>
+            <p id="response-summary" class="panel-copy">Loading response activity…</p>
+            <p class="panel-copy muted" id="response-detail">Response visibility follows the backend's recipient permissions.</p>
+          </section>
+          <section class="panel">
+            <div class="panel-heading"><h2>Notifications</h2><a class="text-link" href="notifications.html">Open inbox</a></div>
+            <div class="notification-summary"><strong id="unread-count">—</strong><span>unread notifications</span></div>
+            <p class="panel-copy" id="notification-summary">Checking your notification status…</p>
+          </section>
+        </div>
+      </div>
+      <p class="privacy-note">Request status, donor eligibility, and response visibility are controlled by the backend. Contact details are not exposed by this dashboard.</p>
+    </main>
+    <footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer>
+  </div>
+</body>
+</html>

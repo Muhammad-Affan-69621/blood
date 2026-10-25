@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a61b2b">
+  <meta name="description" content="Check donor verification status and submit your profile for review.">
+  <title>Donor verification | Blood App</title>
+  <link rel="icon" href="icons/blood-drop.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/verification.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/api-client.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/pwa.js"></script>
+  <script defer src="js/pages/donor-verification.js"></script>
+  <script defer src="js/current-year.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="app-header" id="app-header"></header>
+    <main class="app-main" id="main-content">
+      <div class="verification-heading">
+        <div><p class="eyebrow">Donor workspace</p><h1>Donor verification</h1><p>Track your verification review and submit your donor profile when it is eligible for review.</p></div>
+        <a class="button button--secondary" href="donor-profile.html">Review my profile</a>
+      </div>
+      <div id="page-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+      <section class="verification-status-card" aria-labelledby="status-title">
+        <div class="status-card-main"><span class="status-icon" aria-hidden="true">✓</span><div><p class="eyebrow">Current status</p><h2 id="status-title">Loading verification status…</h2><p id="status-description">Retrieving the latest status from the server.</p></div></div>
+        <dl class="review-meta"><div><dt>Last submission</dt><dd id="submitted-at">—</dd></div><div><dt>Last updated</dt><dd id="updated-at">—</dd></div></dl>
+      </section>
+      <section class="review-feedback" id="review-feedback" aria-labelledby="feedback-title" hidden>
+        <h2 id="feedback-title">Latest reviewer feedback</h2><p id="feedback-text"></p>
+      </section>
+      <section class="verification-form-card" aria-labelledby="submit-title">
+        <div><h2 id="submit-title">Submit for verification</h2><p>Your saved donor profile will be sent to the verification review team. Please make sure your details are accurate before submitting.</p></div>
+        <form id="verification-form" novalidate>
+          <div class="form-actions"><button class="button" id="submit-button" type="submit" disabled>Submit for review</button><p id="submit-guidance" class="submit-guidance">Checking whether submission is allowed…</p></div>
+        </form>
+      </section>
+      <aside class="privacy-note"><strong>What happens next?</strong><p>When you submit, your status changes to pending. Active moderators or platform administrators review submissions. The server decides whether a submission is allowed; you cannot submit again while a review is pending or after verification is complete.</p></aside>
+    </main>
+    <footer class="app-footer">© <span data-current-year></span> Blood App. All rights reserved.</footer>
+  </div>
+</body>
+</html>
